@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index1.css}">
+    <link rel="stylesheet" th:href="@{/fonts/bootstrap.css}">
+    <link rel="stylesheet" type="text/javascript" th:href="@{/js/bootstrap.js}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <div class="sign" background="img/hinhnen.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Login</h3>
+                        <p th:text="${message}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input name="username" type="text" id="email" placeholder="   Username or email" oninput="error('email')" >
+                        <span id="erroremail">*Thông tin từ 3 đến 50 kí tự</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input  name="password" type="password" id="password" placeholder="   Password" oninput="error('password')">
+                        <span id="errorpassword">*Password phải trên 6 kí tự </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7">
+
+                        <button type="submit" id="signin"> Login</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <span>Or login with</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="col-sm-2 gg">
+                        <i class="fab fa-google"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span>Login</span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </form>
+    <script th:src="@{/js/index1.js}"></script>
+</body>
+</html>

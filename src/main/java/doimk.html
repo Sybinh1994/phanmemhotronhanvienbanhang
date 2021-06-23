@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOI MAT KHAU</title>
+</head>
+<body>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using Microsoft.ApplicationBlocks.Data;
+
+namespace QLThietBi
+{
+public partial class doimatkhau : Form
+{
+string strCon = @"server = (local);
+database = QLThietBi;
+integrated security = true;";
+
+public doimatkhau()
+{
+InitializeComponent();
+}
+
+private void doimatkhau_Load(object sender, EventArgs e)
+{
+
+}
+
+private void button1_Click(object sender, EventArgs e)
+{
+string use = txtUseName.Text.Trim();
+string pass = txtPas.Text.Trim();
+string pasnew = txtPasnew.Text.Trim();
+string pasnews = txtPasnews.Text.Trim();
+DataTable dt = SqlHelper.ExecuteDataset(strCon, "dangnhap_login", use, pass).Tables[0];
+if (this.txtUseName.TextLength == 0 || this.txtPas.TextLength == 0)
+{
+MessageBox.Show("Bạn chưa nhập tài khoản hoặc mật khẩu cũ ");
+}
+else if (this.txtPasnew.TextLength == 0) MessageBox.Show("Bạn chưa nhập mật khẩu mới ");
+else if (this.txtPasnews.TextLength == 0) MessageBox.Show("Bạn chưa nhập Lại mật khẩu mới ");
+else if (this.txtPasnew.TextLength != this.txtPasnews.TextLength) MessageBox.Show("Mật khẩu mới chưa trùng");
+else if (dt.Rows.Count <= 0) MessageBox.Show("Sai tài khoản hoặc mật khẩu cũ");
+else
+{
+//Code Đổi pass
+MessageBox.Show("Đổi Thành Công");
+}
+
+}
+}
+}
+</body>
+</html>
